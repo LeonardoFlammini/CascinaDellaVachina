@@ -7,35 +7,42 @@
 
     <div class="container">
       <div class="rooms-grid">
-        <div class="room-card" v-for="room in rooms" :key="room.id">
-          <div class="room-image">
-            <img :src="room.image" :alt="room.name">
+        <router-link 
+          v-for="room in rooms" 
+          :key="room.id" 
+          :to="`/camere/${room.slug}`"
+          class="room-card-link"
+        >
+          <div class="room-card">
+            <div class="room-image">
+              <img :src="room.image" :alt="room.name">
+            </div>
+            <div class="room-content">
+              <h3>{{ room.name }}</h3>
+              <p class="room-description">{{ room.description }}</p>
+              <div class="room-features">
+                <span class="feature">
+                  <span class="icon">👥</span> {{ room.capacity }} persone
+                </span>
+                <span class="feature">
+                  <span class="icon">🛏️</span> {{ room.beds }}
+                </span>
+                <span class="feature">
+                  <span class="icon">🚿</span> {{ room.bathroom }}
+                </span>
+              </div>
+              <div class="room-amenities">
+                <span v-for="amenity in room.amenities" :key="amenity" class="amenity">
+                  {{ amenity }}
+                </span>
+              </div>
+              <div class="room-footer">
+                <span class="price">Da {{ room.price }}€/notte</span>
+                <span class="btn-book">Dettagli</span>
+              </div>
+            </div>
           </div>
-          <div class="room-content">
-            <h3>{{ room.name }}</h3>
-            <p class="room-description">{{ room.description }}</p>
-            <div class="room-features">
-              <span class="feature">
-                <span class="icon">👥</span> {{ room.capacity }} persone
-              </span>
-              <span class="feature">
-                <span class="icon">🛏️</span> {{ room.beds }}
-              </span>
-              <span class="feature">
-                <span class="icon">🚿</span> {{ room.bathroom }}
-              </span>
-            </div>
-            <div class="room-amenities">
-              <span v-for="amenity in room.amenities" :key="amenity" class="amenity">
-                {{ amenity }}
-              </span>
-            </div>
-            <div class="room-footer">
-              <span class="price">Da {{ room.price }}€/notte</span>
-              <router-link to="/contatti" class="btn-book">Prenota</router-link>
-            </div>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -47,36 +54,63 @@ import { ref } from 'vue'
 const rooms = ref([
   {
     id: 1,
-    name: 'Camera Doppia Standard',
-    description: 'Camera accogliente con vista sul giardino, ideale per coppie.',
+    slug: 'chiara',
+    name: 'Camera Chiara',
+    description: 'Camera luminosa e accogliente con vista sul giardino, perfetta per coppie.',
     capacity: 2,
     beds: 'Letto matrimoniale',
     bathroom: 'Bagno privato',
-    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio'],
-    price: 70,
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Camera accessibile per persone con disabilità', 'Bagno finestrato', 'Scrivania'],
+    price: 60,
+    image: '/images/rooms/camera-chiara-letto.jpeg'
   },
   {
     id: 2,
-    name: 'Camera Familiare',
-    description: 'Spaziosa camera perfetta per famiglie, con zona living.',
-    capacity: 4,
-    beds: '1 letto matrimoniale + 2 letti singoli',
+    slug: 'elena',
+    name: 'Camera Elena',
+    description: 'Elegante camera doppia con arredi raffinati e atmosfera rilassante.',
+    capacity: 2,
+    beds: 'Letto matrimoniale',
     bathroom: 'Bagno privato',
-    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Mini frigo', 'Zona soggiorno'],
-    price: 110,
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Camera accessibile per persone con disabilità','Scrivania'],
+    price: 60,
+    image: '/images/rooms/camera-elena-letto.jpeg'
   },
   {
     id: 3,
-    name: 'Camera Superior',
-    description: 'La nostra camera più elegante con vista panoramica.',
+    slug: 'giovanna',
+    name: 'Camera Giovanna',
+    description: 'Briosa e luminosa camera ideale per coppie.',
+    capacity: 4,
+    beds: 'Letto matrimoniale',
+    bathroom: 'Bagno privato',
+    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Bagno finestrato'],
+    price: 60,
+    image: '/images/rooms/camera-giovanna-letto.jpeg'
+  },
+  {
+    id: 4,
+    slug: 'francesco',
+    name: 'Camera Francesco',
+    description: 'Camera spaziosa con letti confortevoli, ideale per famiglie o gruppi.',
+    capacity: 4,
+    beds: 'Letto matrimoniale e 2 letti singoli',
+    bathroom: 'Bagno privato',
+    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Zona Giorno', 'Affaccio Cortile'],
+    price: 104,
+    image: '/images/rooms/camera-francesco-vista-laterale.jpeg'
+  },
+  {
+    id: 5,
+    slug: 'alice',
+    name: 'Camera Alice',
+    description: 'Briosa e luminosa camera ideale per coppie.',
     capacity: 2,
-    beds: 'Letto king size',
-    bathroom: 'Bagno privato con vasca',
-    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Terrazzo privato', 'Minibar'],
-    price: 95,
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    beds: 'Letto matrimoniale',
+    bathroom: 'Bagno privato',
+    amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Bagno finestrato'],
+    price: 60,
+    image: '/images/rooms/camera-alice-letto-2.jpeg'
   }
 ])
 </script>
@@ -114,6 +148,12 @@ const rooms = ref([
   gap: 3rem;
 }
 
+.room-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .room-card {
   background: white;
   border-radius: 10px;
@@ -121,11 +161,13 @@ const rooms = ref([
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 400px 1fr;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
-.room-card:hover {
+.room-card-link:hover .room-card {
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .room-image {
@@ -213,9 +255,10 @@ const rooms = ref([
   border-radius: 5px;
   font-weight: 600;
   transition: background-color 0.3s;
+  display: inline-block;
 }
 
-.btn-book:hover {
+.room-card-link:hover .btn-book {
   background-color: #359268;
 }
 

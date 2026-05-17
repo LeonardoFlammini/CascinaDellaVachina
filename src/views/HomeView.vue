@@ -68,8 +68,8 @@
 <style scoped>
 .hero {
   height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url('/images/hero/cancello-aperto.jpeg') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;

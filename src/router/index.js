@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RoomsView from '../views/RoomsView.vue'
+import ChiaraRoomView from '../views/ChiaraRoomView.vue'
+import ElenaRoomView from '../views/ElenaRoomView.vue'
+import GiovannaRoomView from '../views/GiovannaRoomView.vue'
+import FrancescoRoomView from '../views/FrancescoRoomView.vue'
+import AliceRoomView from '../views/AliceRoomView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import LocationView from '../views/LocationView.vue'
 import GalleryView from '../views/GalleryView.vue'
@@ -19,6 +24,36 @@ const routes = [
     name: 'rooms',
     component: RoomsView,
     meta: { title: 'Le Camere - Cascina della Vachina' }
+  },
+  {
+    path: '/camere/chiara',
+    name: 'room-chiara',
+    component: ChiaraRoomView,
+    meta: { title: 'Camera Chiara - Cascina della Vachina' }
+  },
+  {
+    path: '/camere/elena',
+    name: 'room-elena',
+    component: ElenaRoomView,
+    meta: { title: 'Camera Elena - Cascina della Vachina' }
+  },
+  {
+    path: '/camere/giovanna',
+    name: 'room-giovanna',
+    component: GiovannaRoomView,
+    meta: { title: 'Camera Giovanna - Cascina della Vachina' }
+  },
+  {
+    path: '/camere/francesco',
+    name: 'room-francesco',
+    component: FrancescoRoomView,
+    meta: { title: 'Camera Francesco - Cascina della Vachina' }
+  },
+  {
+    path: '/camere/alice',
+    name: 'room-alice',
+    component: AliceRoomView,
+    meta: { title: 'Camera Alice - Cascina della Vachina' }
   },
   {
     path: '/servizi',
