@@ -34,7 +34,7 @@
           <!-- Mappa caricata dopo consenso -->
           <div v-else class="map-placeholder">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.1455631651697!2d12.855819076584838!3d42.488457926979315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132e545619965773%3A0x959c9d1964af84f6!2sBed%20and%20Breakfast%20La%20Cascina%20della%20Vachina!5e0!3m2!1sit!2sit!4v1778748521711!5m2!1sit!2sit"
+              :src="siteConfig.address.mapEmbedUrl"
               width="100%"
               height="450"
               style="border:0; border-radius: 10px;"
@@ -50,21 +50,28 @@
             <span class="icon">📍</span>
             <div>
               <h4>Indirizzo</h4>
-              <p>Via della Cascina, 123<br>12345 Città (Provincia)</p>
+              <p>{{ siteConfig.address.street }}<br>{{ siteConfig.address.postalCode }} {{ siteConfig.address.city }} ({{ siteConfig.address.province }})</p>
             </div>
           </div>
           <div class="info-item">
             <span class="icon">🚗</span>
             <div>
               <h4>In Auto</h4>
-              <p>Uscita autostradale A12, seguire indicazioni per Città Centro</p>
+              <p>{{ siteConfig.directions.byCar }}</p>
             </div>
           </div>
           <div class="info-item">
             <span class="icon">🚂</span>
             <div>
               <h4>In Treno</h4>
-              <p>Stazione di Città a 5 km (servizio navetta su richiesta)</p>
+              <p>{{ siteConfig.directions.byTrain }}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">🅿️</span>
+            <div>
+              <h4>Parcheggio</h4>
+              <p>{{ siteConfig.directions.parking }}</p>
             </div>
           </div>
         </div>
@@ -102,6 +109,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { siteConfig, getFullAddress } from '@/config/siteConfig'
 
 const mapsConsent = ref(false)
 

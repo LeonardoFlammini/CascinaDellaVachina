@@ -15,10 +15,10 @@ export const siteConfig = {
   
   // ========== CONTATTI ==========
   contact: {
-    phone: '+39 xxx xxx xxxx',
-    phoneRaw: '+39xxxxxxxxxx', // Per link tel:
-    email: 'info@cascinadellavachina.it',
-    whatsapp: '+39xxxxxxxxxx', // Per link WhatsApp
+    phone: '+39 348 5240803',
+    phoneRaw: '+393485240803', // Per link tel:
+    email: 'lacascinadellavachina@gmail.com',
+    whatsapp: '+393470787959', // Per link WhatsApp
     
     // Orari di disponibilità telefonica
     phoneHours: 'Dalle 8:00 alle 20:00'
@@ -26,10 +26,10 @@ export const siteConfig = {
   
   // ========== INDIRIZZO ==========
   address: {
-    street: 'Via della Cascina, 123',
-    city: 'Città',
-    province: 'Provincia',
-    postalCode: '12345',
+    street: 'Località Pescatore nr 3',
+    city: 'Poggio Bustone',
+    province: 'Rieti',
+    postalCode: '02018',
     country: 'Italia',
     
     // Coordinate per la mappa
@@ -44,8 +44,8 @@ export const siteConfig = {
   
   // ========== COME RAGGIUNGERCI ==========
   directions: {
-    byCar: 'Uscita autostradale A12, seguire indicazioni per Città Centro',
-    byTrain: 'Stazione di Città a 5 km (servizio navetta su richiesta)',
+    byCar: 'Uscita autostradale A12, seguire indicazioni per Poggio Bustone',
+    byTrain: 'Stazione di Rieti a 5 km (servizio navetta su richiesta)',
     parking: 'Parcheggio privato gratuito disponibile'
   },
   
@@ -76,12 +76,12 @@ export const siteConfig = {
   // ========== SOCIAL MEDIA ==========
   social: {
     facebook: {
-      url: 'https://facebook.com/cascinadellavachina',
-      handle: '@cascinadellavachina'
+      url: 'https://www.facebook.com/lacascinadellavachina',
+      handle: '@lacascinadellavachina'
     },
     instagram: {
-      url: 'https://instagram.com/cascinadellavachina',
-      handle: '@cascinadellavachina'
+      url: 'https://www.instagram.com/la_cascina_della_vachina?igsh=bWVxazI3ZmtlNG54',
+      handle: '@la_cascina_della_vachina'
     },
     tripadvisor: {
       url: 'https://tripadvisor.com/cascinadellavachina'
@@ -106,7 +106,7 @@ export const siteConfig = {
   },
   
   // ========== LINGUE PARLATE ==========
-  languages: ['Italiano', 'Inglese', 'Francese'],
+  languages: ['Italiano', 'Inglese', 'Spagnolo'],
   
   // ========== SEO & METADATA ==========
   seo: {
