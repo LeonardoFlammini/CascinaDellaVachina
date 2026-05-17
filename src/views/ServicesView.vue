@@ -122,7 +122,7 @@ const services = ref([
 
 <style scoped>
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
   color: white;
   text-align: center;
@@ -132,10 +132,14 @@ const services = ref([
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
 }
 
 .page-header p {
   font-size: 1.3rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .container {
@@ -156,11 +160,6 @@ const services = ref([
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
 }
 
 .service-icon {

@@ -1,0 +1,86 @@
+/**
+ * Design System - Palette Colori
+ * Cascina della Vachina
+ * 
+ * Modifica questi valori per aggiornare la palette colori in tutto il sito
+ */
+
+:root {
+  /* ========== COLORI PRIMARI ========== */
+  /* Verde principale del brand */
+  --color-primary: #42b983;
+  --color-primary-light: #5ecf9a;
+  --color-primary-dark: #359268;
+  --color-primary-darker: #2a7453;
+  
+  /* ========== COLORI TESTO ========== */
+  --color-text-primary: #2c3e50;    /* Titoli e testi importanti */
+  --color-text-secondary: #555;      /* Testi secondari */
+  --color-text-tertiary: #666;       /* Testi meno importanti */
+  --color-text-muted: #888;          /* Testi attenuati/note */
+  --color-text-white: #fff;          /* Testo bianco su sfondi scuri */
+  
+  /* ========== COLORI BACKGROUND ========== */
+  --color-bg-primary: #ffffff;       /* Sfondo principale */
+  --color-bg-secondary: #f8f9fa;     /* Sfondo alternativo */
+  --color-bg-tertiary: #f0f0f0;      /* Sfondo terziario */
+  --color-bg-dark: #2c3e50;          /* Sfondo scuro (footer, hero) */
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);  /* Overlay per hero/immagini */
+  
+  /* ========== COLORI UI ========== */
+  --color-border: #e0e0e0;           /* Bordi standard */
+  --color-border-light: #f0f0f0;     /* Bordi chiari */
+  --color-border-focus: var(--color-primary);  /* Bordi focus */
+  
+  /* ========== COLORI STATI ========== */
+  --color-success: #28a745;          /* Successo */
+  --color-success-light: #d4edda;    /* Sfondo successo */
+  --color-success-text: #155724;     /* Testo successo */
+  
+  --color-error: #dc3545;            /* Errore */
+  --color-error-light: #f8d7da;      /* Sfondo errore */
+  --color-error-text: #721c24;       /* Testo errore */
+  
+  --color-warning: #ffc107;          /* Avviso */
+  --color-warning-light: #fff3cd;    /* Sfondo avviso */
+  --color-warning-text: #856404;     /* Testo avviso */
+  
+  --color-info: #17a2b8;             /* Info */
+  --color-info-light: #d1ecf1;       /* Sfondo info */
+  --color-info-text: #0c5460;        /* Testo info */
+  
+  /* ========== COLORI SOCIAL ========== */
+  --color-facebook: #1877f2;
+  --color-instagram: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --color-tripadvisor: #00af87;
+  --color-whatsapp: #25d366;
+  
+  /* ========== OMBRE ========== */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+  /* ========== TRANSIZIONI ========== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/**
+ * DARK MODE (opzionale - da implementare se necessario)
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Decommentare per abilitare il dark mode automatico */
+    /*
+    --color-text-primary: #f3f4f6;
+    --color-text-secondary: #d1d5db;
+    --color-text-tertiary: #9ca3af;
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #2d2d2d;
+    --color-bg-dark: #0f0f0f;
+    --color-border: #404040;
+    */
+  }
+}

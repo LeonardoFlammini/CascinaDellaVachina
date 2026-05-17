@@ -68,7 +68,7 @@
 <style scoped>
 .hero {
   height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
   display: flex;
   align-items: center;
@@ -80,11 +80,15 @@
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
 }
 
 .hero-content p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .cta-button {
@@ -145,11 +149,6 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.highlight-card:hover {
-  transform: translateY(-5px);
 }
 
 .highlight-icon {

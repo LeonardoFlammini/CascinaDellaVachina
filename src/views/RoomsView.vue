@@ -83,7 +83,7 @@ const rooms = ref([
 
 <style scoped>
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
   color: white;
   text-align: center;
@@ -93,10 +93,14 @@ const rooms = ref([
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
 }
 
 .page-header p {
   font-size: 1.3rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .container {

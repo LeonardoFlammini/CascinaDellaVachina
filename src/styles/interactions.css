@@ -1,0 +1,97 @@
+/**
+ * Design System - Regole di Interazione
+ * Cascina della Vachina
+ * 
+ * Linee guida per effetti hover e interazioni
+ */
+
+:root {
+  /* ========== CURSORI ========== */
+  --cursor-pointer: pointer;
+  --cursor-default: default;
+  --cursor-not-allowed: not-allowed;
+}
+
+/**
+ * REGOLA FONDAMENTALE:
+ * Gli effetti hover "flottanti" devono essere usati SOLO per elementi interagibili
+ * 
+ * ✅ SI: Bottoni, link, card cliccabili, elementi con azioni
+ * ❌ NO: Card informative, contenuti statici, elementi non cliccabili
+ */
+
+/* ========== CLASSI HELPER PER ELEMENTI INTERAGIBILI ========== */
+
+/* Effetto float per elementi cliccabili */
+.interactive-card {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  cursor: var(--cursor-pointer);
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Effetto per bottoni */
+.btn-hover {
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+}
+
+.btn-hover:hover {
+  transform: scale(1.02);
+}
+
+.btn-hover:active {
+  transform: scale(0.98);
+}
+
+/* Effetto per link testuali */
+.link-hover {
+  transition: color var(--transition-base);
+}
+
+.link-hover:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Effetto per immagini cliccabili */
+.image-hover {
+  transition: transform var(--transition-base);
+  cursor: var(--cursor-pointer);
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+}
+
+/* ========== ELEMENTI NON INTERAGIBILI ========== */
+
+/* Card informative - solo ombra leggera, NO float */
+.info-card-static {
+  box-shadow: var(--shadow-md);
+  /* NO transition, NO hover effects */
+}
+
+/* ========== STATI DISABILITATI ========== */
+.disabled,
+[disabled] {
+  opacity: 0.6;
+  cursor: var(--cursor-not-allowed);
+  pointer-events: none;
+}
+
+/* ========== FOCUS ACCESSIBILITY ========== */
+.interactive-element:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/**
+ * NOTE PER GLI SVILUPPATORI:
+ * 
+ * 1. Prima di aggiungere :hover con transform, chiediti: "Questo elemento è cliccabile?"
+ * 2. Se non è cliccabile, NON aggiungere effetti float
+ * 3. Gli effetti hover comunicano affordance (suggeriscono che l'elemento è interagibile)
+ * 4. Mantieni la coerenza: tutti gli elementi cliccabili simili devono comportarsi allo stesso modo
+ */

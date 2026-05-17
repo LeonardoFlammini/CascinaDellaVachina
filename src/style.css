@@ -1,74 +1,104 @@
-/* Global Styles for Cascina della Vachina */
-:root {
-  --primary-color: #42b983;
-  --primary-dark: #359268;
-  --text-dark: #2c3e50;
-  --text-light: #555;
-  --text-gray: #666;
-  --bg-light: #f8f9fa;
-  --border-color: #e0e0e0;
-  --white: #fff;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+/**
+ * Global Styles - Cascina della Vachina
+ * Design System applicato globalmente
+ */
 
+/* Import Design System */
+@import './styles/colors.css';
+@import './styles/typography.css';
+@import './styles/interactions.css';
+
+/* ========== RESET & BASE ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text-light);
-  line-height: 1.6;
-  background-color: var(--white);
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== TIPOGRAFIA ========== */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-dark);
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-semibold);
+}
+
+h1 { font-size: var(--font-size-5xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin-bottom: var(--spacing-md);
 }
 
 a {
-  color: var(--primary-color);
-  transition: all 0.3s ease;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
 }
 
 a:hover {
-  color: var(--primary-dark);
+  color: var(--color-primary-dark);
 }
 
+/* ========== MEDIA ========== */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-button {
+/* ========== FORM ELEMENTS ========== */
+button, input, select, textarea {
   font-family: inherit;
+  font-size: inherit;
 }
 
-/* Utility Classes */
+/* ========== UTILITY CLASSES ========== */
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--container-padding);
 }
 
 .text-center {
   text-align: center;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* ========== ACCESSIBILITÀ ========== */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
-/* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+/* Nascondi elementi solo visivamente (mantieni per screen reader) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .counter {

@@ -5,6 +5,7 @@ import ServicesView from '../views/ServicesView.vue'
 import LocationView from '../views/LocationView.vue'
 import GalleryView from '../views/GalleryView.vue'
 import ContactsView from '../views/ContactsView.vue'
+import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 
 const routes = [
   {
@@ -42,6 +43,12 @@ const routes = [
     name: 'contacts',
     component: ContactsView,
     meta: { title: 'Contatti - Cascina della Vachina' }
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy',
+    component: PrivacyPolicyView,
+    meta: { title: 'Privacy Policy - Cascina della Vachina' }
   }
 ]
 

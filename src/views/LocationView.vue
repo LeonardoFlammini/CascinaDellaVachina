@@ -9,17 +9,40 @@
       <!-- Map Section -->
       <section class="map-section">
         <h2>Come Raggiungerci</h2>
-        <div class="map-placeholder">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.1455631651697!2d12.855819076584838!3d42.488457926979315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132e545619965773%3A0x959c9d1964af84f6!2sBed%20and%20Breakfast%20La%20Cascina%20della%20Vachina!5e0!3m2!1sit!2sit!4v1778748521711!5m2!1sit!2sit"
-            width="100%"
-            height="450"
-            style="border:0; border-radius: 10px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <div class="map-container">
+          <!-- Placeholder se consenso non dato -->
+          <div v-if="!mapsConsent" class="map-consent-placeholder">
+            <div class="consent-content">
+              <div class="consent-icon">🗺️</div>
+              <h3>Mappa Google Maps</h3>
+              <p>
+                Per visualizzare la mappa interattiva, è necessario accettare i cookie di Google Maps.
+                Google potrebbe raccogliere dati di navigazione.
+              </p>
+              <button @click="acceptMaps" class="btn-accept-maps">
+                Accetta e Carica Mappa
+              </button>
+              <p class="consent-note">
+                <small>
+                  Verranno installati cookie di terze parti. 
+                  <router-link to="/privacy-policy">Privacy Policy</router-link>
+                </small>
+              </p>
+            </div>
+          </div>
 
+          <!-- Mappa caricata dopo consenso -->
+          <div v-else class="map-placeholder">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.1455631651697!2d12.855819076584838!3d42.488457926979315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132e545619965773%3A0x959c9d1964af84f6!2sBed%20and%20Breakfast%20La%20Cascina%20della%20Vachina!5e0!3m2!1sit!2sit!4v1778748521711!5m2!1sit!2sit"
+              width="100%"
+              height="450"
+              style="border:0; border-radius: 10px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
         
         <div class="address-info">
@@ -78,7 +101,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const mapsConsent = ref(false)
+
+// Controlla se l'utente ha già dato il consenso
+onMounted(() => {
+  const consent = localStorage.getItem('googleMapsConsent')
+  if (consent === 'true') {
+    mapsConsent.value = true
+  }
+})
+
+const acceptMaps = () => {
+  localStorage.setItem('googleMapsConsent', 'true')
+  localStorage.setItem('googleMapsConsentDate', new Date().toISOString())
+  mapsConsent.value = true
+}
 
 const attractions = ref([
   {
@@ -137,7 +176,7 @@ const distances = ref([
 
 <style scoped>
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
   color: white;
   text-align: center;
@@ -147,10 +186,14 @@ const distances = ref([
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
 }
 
 .page-header p {
   font-size: 1.3rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .container {
@@ -179,6 +222,78 @@ h2 {
 
 .map-section {
   margin-bottom: 4rem;
+}
+
+.map-container {
+  margin: 2rem 0;
+}
+
+.map-consent-placeholder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  text-align: center;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consent-content {
+  max-width: 500px;
+  color: white;
+}
+
+.consent-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.consent-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.consent-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-accept-maps {
+  background-color: white;
+  color: #667eea;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-accept-maps:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.consent-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.consent-note a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.consent-note a:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .map-placeholder {
@@ -229,11 +344,6 @@ h2 {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.attraction-card:hover {
-  transform: translateY(-5px);
 }
 
 .attraction-icon {
