@@ -84,7 +84,7 @@ export const siteConfig = {
       handle: '@la_cascina_della_vachina'
     },
     tripadvisor: {
-      url: 'https://tripadvisor.com/cascinadellavachina'
+      url: 'https://www.tripadvisor.it/Hotel_Review-g1997021-d13006960-Reviews-La_Cascina_della_Vachina-Poggio_Bustone_Province_of_Rieti_Lazio.html'
     }
   },
   

@@ -154,16 +154,17 @@
               </label>
             </div>
 
-            <button type="submit" class="submit-btn">
-              Invia Richiesta via Email
+            <button type="submit" class="submit-btn" :disabled="isSubmitting">
+              <span v-if="isSubmitting">Invio in corso...</span>
+              <span v-else>Invia Richiesta</span>
             </button>
 
             <p v-if="submitSuccess" class="success-message">
-              ✓ Il tuo client email si aprirà con i dati compilati. Invia l'email per completare la richiesta.
+              ✓ Messaggio inviato! Ti risponderemo al più presto.
             </p>
 
-            <p class="form-note">
-              <small>💡 Il form aprirà il tuo client email predefinito. Se non funziona, contattaci direttamente via email o telefono.</small>
+            <p v-if="submitError" class="error-message">
+              ✗ Errore nell'invio. Contattaci direttamente a {{ siteConfig.contact.email }}
             </p>
           </form>
         </section>
@@ -191,38 +192,43 @@ const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const submitError = ref(false)
 
-const handleSubmit = () => {
-  // Poiché non c'è backend, crea un link mailto con i dati del form
-  const subject = encodeURIComponent('Richiesta informazioni da ' + formData.name)
-  const body = encodeURIComponent(
-    `Nome: ${formData.name}\n` +
-    `Email: ${formData.email}\n` +
-    `Telefono: ${formData.phone || 'Non fornito'}\n` +
-    `Numero Ospiti: ${formData.guests || 'Non specificato'}\n` +
-    `Check-in: ${formData.checkin || 'Non specificato'}\n` +
-    `Check-out: ${formData.checkout || 'Non specificato'}\n\n` +
-    `Messaggio:\n${formData.message}\n\n` +
-    `---\n` +
-    `Consenso privacy accordato il: ${new Date().toLocaleString('it-IT')}`
-  )
-  
-  // Apri client email
-  window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`
-  
-  // Mostra messaggio di successo
-  submitSuccess.value = true
-  
-  // Reset form dopo 3 secondi
-  setTimeout(() => {
-    Object.keys(formData).forEach(key => {
-      if (typeof formData[key] === 'boolean') {
-        formData[key] = false
-      } else {
-        formData[key] = ''
-      }
+const handleSubmit = async () => {
+  isSubmitting.value = true
+  submitSuccess.value = false
+  submitError.value = false
+
+  try {
+    const data = new FormData()
+    data.append('_subject', `Richiesta informazioni da ${formData.name}`)
+    data.append('nome', formData.name)
+    data.append('email', formData.email)
+    data.append('telefono', formData.phone || 'Non fornito')
+    data.append('ospiti', formData.guests || 'Non specificato')
+    data.append('checkin', formData.checkin || 'Non specificato')
+    data.append('checkout', formData.checkout || 'Non specificato')
+    data.append('messaggio', formData.message)
+    data.append('_privacy', `Consenso accordato il ${new Date().toLocaleString('it-IT')}`)
+    data.append('_captcha', 'false')
+
+    const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
+      method: 'POST',
+      body: data
     })
-    submitSuccess.value = false
-  }, 3000)
+
+    if (response.ok) {
+      submitSuccess.value = true
+      Object.keys(formData).forEach(key => {
+        formData[key] = typeof formData[key] === 'boolean' ? false : ''
+      })
+      setTimeout(() => { submitSuccess.value = false }, 5000)
+    } else {
+      submitError.value = true
+    }
+  } catch (e) {
+    submitError.value = true
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
