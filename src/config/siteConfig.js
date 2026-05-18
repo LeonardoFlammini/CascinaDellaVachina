@@ -51,22 +51,22 @@ export const siteConfig = {
   
   // ========== ORARI CHECK-IN/OUT ==========
   checkIn: {
-    from: '14:00',
-    to: '20:00',
+    from: '10:00',
+    to: '12:00',
     note: 'Per arrivi fuori orario, contattaci in anticipo'
   },
   
   checkOut: {
-    time: '11:00',
+    time: '10:00',
     note: 'Check-out flessibile su richiesta'
   },
   
   // ========== POLITICHE ==========
   policies: {
-    cancellation: 'Cancellazione gratuita fino a 7 giorni prima dell\'arrivo',
+    cancellation: 'Cancellazione gratuita fino a 3 giorni prima dell\'arrivo',
     pets: {
-      allowed: true,
-      description: 'Animali domestici di piccola taglia ammessi su richiesta',
+      allowed: false,
+      description: 'Animali domestici non ammessi per garantire il comfort di tutti gli ospiti',
       fee: '10€ al giorno'
     },
     minStay: 1, // Notti minime
@@ -107,6 +107,9 @@ export const siteConfig = {
   
   // ========== LINGUE PARLATE ==========
   languages: ['Italiano', 'Inglese', 'Spagnolo'],
+  
+  // ========== ORDINE CATEGORIE GALLERY ==========
+  galleryCategories: ['Camere', 'Location', 'Gallery'],
   
   // ========== ATTRAZIONI NELLE VICINANZE ==========
   attractions: [

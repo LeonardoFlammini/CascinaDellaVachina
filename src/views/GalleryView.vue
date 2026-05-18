@@ -47,8 +47,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { siteConfig } from '@/config/siteConfig'
 
-const selectedCategory = ref('Tutte')
+const selectedCategory = ref('')
 const lightboxOpen = ref(false)
 const currentImageIndex = ref(0)
 
@@ -59,9 +60,14 @@ const imageModules = import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp}',
 const loadImages = () => {
   const processedImages = []
   const seenFilenames = new Set() // Per tracciare i duplicati
-  const foundCategories = new Set(['Tutte']) // Categorie trovate dinamicamente
+  const foundCategories = new Set() // Categorie trovate dinamicamente
   
   for (const [path, url] of Object.entries(imageModules)) {
+    // Escludi immagini dalla cartella 'hero'
+    if (path.includes('/hero/')) {
+      continue
+    }
+    
     // Estrai il nome del file
     const filename = path.split('/').pop()
     
@@ -108,15 +114,27 @@ const loadImages = () => {
     })
   }
   
+  // Ordina le immagini per categoria (secondo ordine config) e poi per filename
+  const sortedImages = processedImages.sort((a, b) => {
+    const orderA = siteConfig.galleryCategories.indexOf(a.category)
+    const orderB = siteConfig.galleryCategories.indexOf(b.category)
+    
+    if (orderA !== orderB) {
+      return (orderA === -1 ? 999 : orderA) - (orderB === -1 ? 999 : orderB)
+    }
+    return a.filename.localeCompare(b.filename, undefined, { numeric: true })
+  })
+  
+  // Ordina le categorie secondo l'ordine definito in siteConfig
+  const sortedCategories = Array.from(foundCategories).sort((a, b) => {
+    const orderA = siteConfig.galleryCategories.indexOf(a)
+    const orderB = siteConfig.galleryCategories.indexOf(b)
+    return (orderA === -1 ? 999 : orderA) - (orderB === -1 ? 999 : orderB)
+  })
+  
   return {
-    images: processedImages.sort((a, b) => {
-      // Ordina per categoria, poi per filename
-      if (a.category === b.category) {
-        return a.filename.localeCompare(b.filename, undefined, { numeric: true })
-      }
-      return a.category.localeCompare(b.category)
-    }),
-    categories: Array.from(foundCategories).sort()
+    images: sortedImages,
+    categories: sortedCategories
   }
 }
 
@@ -124,10 +142,12 @@ const { images: loadedImages, categories: loadedCategories } = loadImages()
 const images = ref(loadedImages)
 const categories = ref(loadedCategories)
 
+// Imposta la prima categoria come default
+if (loadedCategories.length > 0) {
+  selectedCategory.value = loadedCategories[0]
+}
+
 const filteredImages = computed(() => {
-  if (selectedCategory.value === 'Tutte') {
-    return images.value
-  }
   return images.value.filter(img => img.category === selectedCategory.value)
 })
 
@@ -210,9 +230,8 @@ const prevImage = () => {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  column-count: 3;
+  column-gap: 1.5rem;
 }
 
 .gallery-item {
@@ -220,13 +239,22 @@ const prevImage = () => {
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
-  aspect-ratio: 4/3;
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   transition: transform 0.3s;
 }
 
@@ -339,6 +367,17 @@ const prevImage = () => {
   border-radius: 5px;
 }
 
+@media (max-width: 1024px) {
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 1rem;
+  }
+  
+  .gallery-item {
+    margin-bottom: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
@@ -349,8 +388,12 @@ const prevImage = () => {
   }
   
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    column-count: 1;
+    column-gap: 0;
+  }
+  
+  .gallery-item {
+    margin-bottom: 1rem;
   }
   
   .nav-btn {
