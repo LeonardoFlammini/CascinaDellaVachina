@@ -54,7 +54,7 @@ const lightboxOpen = ref(false)
 const currentImageIndex = ref(0)
 
 // Carica dinamicamente tutte le immagini da public/images e sottocartelle
-const imageModules = import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp}', { eager: true, as: 'url' })
+const imageModules = import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' })
 
 // Processa le immagini ed evita duplicati
 const loadImages = () => {

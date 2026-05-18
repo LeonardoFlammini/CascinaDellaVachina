@@ -126,7 +126,7 @@
 import { ref, computed } from 'vue'
 
 // Carica dinamicamente tutte le immagini dalla cartella elena
-const imageModules = import.meta.glob('/public/images/rooms/elena/*.{jpg,jpeg,png,webp}', { eager: true, as: 'url' })
+const imageModules = import.meta.glob('/public/images/rooms/elena/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' })
 
 // Trasforma l'oggetto in un array ordinato
 const roomImages = computed(() => {
