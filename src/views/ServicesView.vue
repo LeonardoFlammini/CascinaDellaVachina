@@ -53,10 +53,11 @@ const services = ref([
     description: 'Inizia la giornata con la nostra colazione genuina',
     details: [
       'Prodotti freschi e locali',
-      'Torte fatte in casa',
+      'Torte artigianali',
       'Marmellate artigianali',
       'Caffè e bevande calde',
-      'Opzioni per celiaci e vegetariani'
+      'Opzioni per celiaci, intolleranti al lattosio e vegetariani',
+      'Possibilità di colazione all\'aperto nei mesi più caldi'
     ]
   },
   {
@@ -66,7 +67,6 @@ const services = ref([
     description: 'Parcheggio privato gratuito per tutti gli ospiti',
     details: [
       'Ampio parcheggio interno',
-      'Video sorveglianza',
       'Accesso custodito',
       'Posti auto riservati'
     ]
@@ -96,13 +96,17 @@ const services = ref([
   },
   {
     id: 5,
-    icon: '🧺',
-    title: 'Servizio Lavanderia',
-    description: 'Servizio lavanderia disponibile su richiesta',
+    icon: '🛎️',
+    title: 'I nostri comfort',
+    description: 'Per rendere il tuo soggiorno ancora più piacevole',
     details: [
-      'Lavatrice e asciugatrice',
-      'Ferro e asse da stiro',
-      'Disponibile a pagamento'
+      'Camere climatizzate',
+      'Bagno privato in tutte le camere',
+      'Finestre panoramiche con vista',
+      'Set cortesia di alta qualità',
+      'Atmosfera rilassante immersa nella natura',
+      'Privacy e tranquillità',
+      'Camere per ospiti con disabilità',
     ]
   },
   {
@@ -114,7 +118,8 @@ const services = ref([
       'Consigli su itinerari e visite',
       'Mappe e guide turistiche',
       'Prenotazione ristoranti',
-      'Informazioni su eventi locali'
+      'Informazioni su eventi locali',
+      'Attività convenzionate e sconti per attrazioni turistiche',
     ]
   }
 ])

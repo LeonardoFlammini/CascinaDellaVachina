@@ -44,8 +44,8 @@ export const siteConfig = {
   
   // ========== COME RAGGIUNGERCI ==========
   directions: {
-    byCar: 'Uscita autostradale A12, seguire indicazioni per Poggio Bustone',
-    byTrain: 'Stazione di Rieti a 5 km (servizio navetta su richiesta)',
+    byCar: 'Uscita autostradale piediluco a 10 km, seguire le indicazioni per Poggio Bustone',
+    byTrain: 'Stazione di Rieti a 13 km ',
     parking: 'Parcheggio privato gratuito disponibile'
   },
   
@@ -107,6 +107,62 @@ export const siteConfig = {
   
   // ========== LINGUE PARLATE ==========
   languages: ['Italiano', 'Inglese', 'Spagnolo'],
+  
+  // ========== ATTRAZIONI NELLE VICINANZE ==========
+  attractions: [
+    {
+      id: 1,
+      icon: '🏰',
+      name: 'Centro Storico',
+      distance: '6 km',
+      description: 'Borghi medievali e architetture storiche da scoprire'
+    },
+    {
+      id: 2,
+      icon: '🍷',
+      name: 'Cantine Vinicole',
+      distance: '4 km',
+      description: 'Degustazioni di vini locali e visite guidate'
+    },
+    {
+      id: 3,
+      icon: '⛰️',
+      name: 'Sentieri Naturalistici',
+      distance: '0 km',
+      description: 'Percorsi di trekking e mountain bike nella natura'
+    },
+    {
+      id: 4,
+      icon: '🏛️',
+      name: 'Musei',
+      distance: '13 km',
+      description: 'Arte e cultura locale da esplorare'
+    },
+    {
+      id: 5,
+      icon: '🏖️',
+      name: 'Lago',
+      distance: '1 km',
+      description: 'Relax e sport acquatici sul lago'
+    },
+    {
+      id: 6,
+      icon: '🍝',
+      name: 'Ristoranti Tipici',
+      distance: '1-5 km',
+      description: 'Cucina tradizionale e specialità locali'
+    }
+  ],
+  
+  // ========== DISTANZE DA SERVIZI ==========
+  distances: [
+    { place: 'Centro città', distance: '13 km' },
+    { place: 'Stazione ferroviaria', distance: '13 km' },
+    { place: 'Aeroporto più vicino', distance: '100 km' },
+    { place: 'Supermercato', distance: '2 km' },
+    { place: 'Farmacia', distance: '3 km' },
+    { place: 'Ospedale', distance: '16 km' }
+  ],
   
   // ========== SEO & METADATA ==========
   seo: {

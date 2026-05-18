@@ -67,13 +67,13 @@
               <p>{{ siteConfig.directions.byTrain }}</p>
             </div>
           </div>
-          <div class="info-item">
+          <!-- <div class="info-item">
             <span class="icon">🅿️</span>
             <div>
               <h4>Parcheggio</h4>
               <p>{{ siteConfig.directions.parking }}</p>
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
         </div>
       </section>
 
@@ -127,59 +127,9 @@ const acceptMaps = () => {
   mapsConsent.value = true
 }
 
-const attractions = ref([
-  {
-    id: 1,
-    icon: '🏰',
-    name: 'Centro Storico',
-    distance: '3 km',
-    description: 'Borghi medievali e architetture storiche da scoprire'
-  },
-  {
-    id: 2,
-    icon: '🍷',
-    name: 'Cantine Vinicole',
-    distance: '8 km',
-    description: 'Degustazioni di vini locali e visite guidate'
-  },
-  {
-    id: 3,
-    icon: '⛰️',
-    name: 'Sentieri Naturalistici',
-    distance: '2 km',
-    description: 'Percorsi di trekking e mountain bike nella natura'
-  },
-  {
-    id: 4,
-    icon: '🏛️',
-    name: 'Musei',
-    distance: '5 km',
-    description: 'Arte e cultura locale da esplorare'
-  },
-  {
-    id: 5,
-    icon: '🏖️',
-    name: 'Lago',
-    distance: '15 km',
-    description: 'Relax e sport acquatici sul lago'
-  },
-  {
-    id: 6,
-    icon: '🍝',
-    name: 'Ristoranti Tipici',
-    distance: '1-5 km',
-    description: 'Cucina tradizionale e specialità locali'
-  }
-])
-
-const distances = ref([
-  { place: 'Centro città', distance: '3 km' },
-  { place: 'Stazione ferroviaria', distance: '5 km' },
-  { place: 'Aeroporto più vicino', distance: '45 km' },
-  { place: 'Supermercato', distance: '2 km' },
-  { place: 'Farmacia', distance: '3 km' },
-  { place: 'Ospedale', distance: '8 km' }
-])
+// Dati da siteConfig
+const attractions = siteConfig.attractions
+const distances = siteConfig.distances
 </script>
 
 <style scoped>

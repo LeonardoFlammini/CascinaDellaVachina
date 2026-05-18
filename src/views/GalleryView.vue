@@ -48,25 +48,81 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-const categories = ref(['Tutte', 'Camere', 'Esterni', 'Colazione', 'Struttura'])
 const selectedCategory = ref('Tutte')
 const lightboxOpen = ref(false)
 const currentImageIndex = ref(0)
 
-const images = ref([
-  { url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800', title: 'Camera Doppia', category: 'Camere' },
-  { url: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800', title: 'Camera Familiare', category: 'Camere' },
-  { url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800', title: 'Camera Superior', category: 'Camere' },
-  { url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800', title: 'Esterno Cascina', category: 'Esterni' },
-  { url: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800', title: 'Giardino', category: 'Esterni' },
-  { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', title: 'Ingresso', category: 'Struttura' },
-  { url: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800', title: 'Colazione', category: 'Colazione' },
-  { url: 'https://images.unsplash.com/photo-1533920379810-6bedac961555?w=800', title: 'Dolci fatti in casa', category: 'Colazione' },
-  { url: 'https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800', title: 'Area relax', category: 'Esterni' },
-  { url: 'https://images.unsplash.com/photo-1587985064135-0366536eab42?w=800', title: 'Sala comune', category: 'Struttura' },
-  { url: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800', title: 'Dettaglio camera', category: 'Camere' },
-  { url: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800', title: 'Vista panoramica', category: 'Esterni' }
-])
+// Carica dinamicamente tutte le immagini da public/images e sottocartelle
+const imageModules = import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp}', { eager: true, as: 'url' })
+
+// Processa le immagini ed evita duplicati
+const loadImages = () => {
+  const processedImages = []
+  const seenFilenames = new Set() // Per tracciare i duplicati
+  const foundCategories = new Set(['Tutte']) // Categorie trovate dinamicamente
+  
+  for (const [path, url] of Object.entries(imageModules)) {
+    // Estrai il nome del file
+    const filename = path.split('/').pop()
+    
+    // Salta se è un duplicato
+    if (seenFilenames.has(filename)) {
+      continue
+    }
+    seenFilenames.add(filename)
+    
+    // Estrai categoria dal path (es: /public/images/rooms/chiara/1.jpg -> "rooms")
+    const pathParts = path.replace('/public/images/', '').split('/')
+    let category = 'Generale'
+    let title = filename.replace(/\.\w+$/, '') // Nome file senza estensione
+    
+    if (pathParts.length > 1) {
+      // Ha sottocartelle
+      const folder = pathParts[0]
+      
+      // Mappa nomi cartelle a categorie user-friendly
+      const categoryMap = {
+        'rooms': 'Camere',
+        'exterior': 'Esterni',
+        'breakfast': 'Colazione',
+        'structure': 'Struttura',
+        'services': 'Servizi'
+      }
+      
+      category = categoryMap[folder] || folder.charAt(0).toUpperCase() + folder.slice(1)
+      
+      // Se è una sottocartella di rooms, usa il nome della camera come titolo
+      if (folder === 'rooms' && pathParts.length > 2) {
+        const roomName = pathParts[1].charAt(0).toUpperCase() + pathParts[1].slice(1)
+        title = `Camera ${roomName}`
+      }
+    }
+    
+    foundCategories.add(category)
+    
+    processedImages.push({
+      url: url,
+      title: title,
+      category: category,
+      filename: filename
+    })
+  }
+  
+  return {
+    images: processedImages.sort((a, b) => {
+      // Ordina per categoria, poi per filename
+      if (a.category === b.category) {
+        return a.filename.localeCompare(b.filename, undefined, { numeric: true })
+      }
+      return a.category.localeCompare(b.category)
+    }),
+    categories: Array.from(foundCategories).sort()
+  }
+}
+
+const { images: loadedImages, categories: loadedCategories } = loadImages()
+const images = ref(loadedImages)
+const categories = ref(loadedCategories)
 
 const filteredImages = computed(() => {
   if (selectedCategory.value === 'Tutte') {
