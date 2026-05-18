@@ -134,7 +134,7 @@ const roomImages = computed(() => {
     .map(([path, url]) => {
       const filename = path.split('/').pop()
       return {
-        src: `/images/rooms/elena/${filename}`,
+        src: url,
         alt: `Camera Elena - ${filename}`,
         order: parseInt(filename.match(/\d+/)?.[0] || '999')
       }
