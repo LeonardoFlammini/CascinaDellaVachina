@@ -51,6 +51,8 @@
 <script setup>
 import { ref } from 'vue'
 
+const base = import.meta.env.BASE_URL
+
 const rooms = ref([
   {
     id: 1,
@@ -62,7 +64,7 @@ const rooms = ref([
     bathroom: 'Bagno privato',
     amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Camera accessibile per persone con disabilità', 'Bagno finestrato', 'Scrivania'],
     price: 60,
-    image: '/images/rooms/camera-chiara-letto.jpeg'
+    image: `${base}images/rooms/camera-chiara-letto.jpeg`
   },
   {
     id: 2,
@@ -74,7 +76,7 @@ const rooms = ref([
     bathroom: 'Bagno privato',
     amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Camera accessibile per persone con disabilità','Scrivania'],
     price: 60,
-    image: '/images/rooms/camera-elena-letto.jpeg'
+    image: `${base}images/rooms/camera-elena-letto.jpeg`
   },
   {
     id: 3,
@@ -86,7 +88,7 @@ const rooms = ref([
     bathroom: 'Bagno privato',
     amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Bagno finestrato'],
     price: 60,
-    image: '/images/rooms/camera-giovanna-letto.jpeg'
+    image: `${base}images/rooms/camera-giovanna-letto.jpeg`
   },
   {
     id: 4,
@@ -98,7 +100,7 @@ const rooms = ref([
     bathroom: 'Bagno privato',
     amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Zona Giorno', 'Affaccio Cortile'],
     price: 104,
-    image: '/images/rooms/camera-francesco-vista-laterale.jpeg'
+    image: `${base}images/rooms/camera-francesco-vista-laterale.jpeg`
   },
   {
     id: 5,
@@ -110,7 +112,7 @@ const rooms = ref([
     bathroom: 'Bagno privato',
     amenities: ['Wi-Fi', 'TV', 'Aria condizionata', 'Armadio','Scrivania', 'Mini frigo', 'Bagno finestrato'],
     price: 60,
-    image: '/images/rooms/camera-alice-letto-2.jpeg'
+    image: `${base}images/rooms/camera-alice-letto-2.jpeg`
   }
 ])
 </script>
