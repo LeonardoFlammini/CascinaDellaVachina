@@ -47,6 +47,16 @@
             <h3>Immersi nella Natura</h3>
             <p>Tranquillità e paesaggi mozzafiato a pochi passi</p>
           </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🤫</div>
+            <h3>Ambiente Tranquillo e Riservato</h3>
+            <p>Perfetto per concedersi momenti di pace lontano dal caos</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">♿</div>
+            <h3>Camere Accessibili</h3>
+            <p>Spazi pensati per garantire comfort e facilità di accesso alle persone con disabilità</p>
+          </div>
         </div>
       </div>
     </section>

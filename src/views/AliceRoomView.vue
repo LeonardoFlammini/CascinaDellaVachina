@@ -49,13 +49,13 @@
                   <p>Bagno privato finestrato</p>
                 </div>
               </div>
-              <div class="feature-item">
+              <!-- <div class="feature-item">
                 <span class="icon">📏</span>
                 <div>
                   <strong>Dimensione</strong>
                   <p>22 m²</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </section>
 

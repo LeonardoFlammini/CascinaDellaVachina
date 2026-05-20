@@ -50,13 +50,13 @@
                   <p>Bagno privato</p>
                 </div>
               </div>
-              <div class="feature-item">
+              <!-- <div class="feature-item">
                 <span class="icon">📏</span>
                 <div>
                   <strong>Dimensione</strong>
                   <p>35 m²</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </section>
 
