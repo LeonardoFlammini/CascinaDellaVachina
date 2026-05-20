@@ -84,6 +84,10 @@ const routes = [
     name: 'privacy',
     component: PrivacyPolicyView,
     meta: { title: 'Privacy Policy - Cascina della Vachina' }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
   }
 ]
 
