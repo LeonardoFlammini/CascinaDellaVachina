@@ -129,7 +129,7 @@ const rooms = ref([
 <style scoped>
 .page-header {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    url('public/images/rooms/francesco/camera-francesco-letto.jpeg') center/cover;
   color: white;
   text-align: center;
   padding: 5rem 20px;

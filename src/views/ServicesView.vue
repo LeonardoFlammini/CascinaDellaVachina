@@ -51,7 +51,7 @@ const services = siteConfig.services
 <style scoped>
 .page-header {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    url('public/images/location/sala-colazioni-vista-laterale.jpeg') center/cover;
   color: white;
   text-align: center;
   padding: 5rem 20px;
