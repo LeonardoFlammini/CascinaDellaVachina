@@ -22,19 +22,19 @@
         <div class="info-grid">
           <div class="info-card">
             <h4>Check-in / Check-out</h4>
-            <p><strong>Check-in:</strong> dalle 14:00 alle 20:00</p>
-            <p><strong>Check-out:</strong> entro le 11:00</p>
-            <p class="note">Per arrivi fuori orario, contattaci in anticipo</p>
+            <p><strong>Check-in:</strong> dalle {{ siteConfig.checkIn.from }} alle {{ siteConfig.checkIn.to }}</p>
+            <p><strong>Check-out:</strong> entro le {{ siteConfig.checkOut.time }}</p>
+            <p class="note">{{ siteConfig.checkIn.note }}</p>
           </div>
           <div class="info-card">
             <h4>Cancellazione</h4>
-            <p>Cancellazione gratuita fino a 7 giorni prima dell'arrivo</p>
-            <p class="note">Consulta le nostre condizioni complete al momento della prenotazione</p>
+            <p>{{ siteConfig.policies.cancellation }}</p>
+            <p class="note">{{ siteConfig.policies.cancellationNote }}</p>
           </div>
           <div class="info-card">
             <h4>Animali</h4>
-            <p>Animali domestici di piccola taglia ammessi su richiesta</p>
-            <p class="note">Supplemento di 10€ al giorno</p>
+            <p>{{ siteConfig.policies.pets.description }}</p>
+            <!-- <p class="note">Supplemento di {{ siteConfig.policies.pets.fee }}</p> -->
           </div>
         </div>
       </section>
@@ -43,86 +43,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import siteConfig from '@/config/siteConfig'
 
-const services = ref([
-  {
-    id: 1,
-    icon: '🥐',
-    title: 'Colazione',
-    description: 'Inizia la giornata con la nostra colazione genuina',
-    details: [
-      'Prodotti freschi e locali',
-      'Torte artigianali',
-      'Marmellate artigianali',
-      'Caffè e bevande calde',
-      'Opzioni per celiaci, intolleranti al lattosio e vegetariani',
-      'Possibilità di colazione all\'aperto nei mesi più caldi'
-    ]
-  },
-  {
-    id: 2,
-    icon: '🅿️',
-    title: 'Parcheggio',
-    description: 'Parcheggio privato gratuito per tutti gli ospiti',
-    details: [
-      'Ampio parcheggio interno',
-      'Accesso custodito',
-      'Posti auto riservati'
-    ]
-  },
-  {
-    id: 3,
-    icon: '📶',
-    title: 'Wi-Fi Gratuito',
-    description: 'Connessione internet veloce in tutta la struttura',
-    details: [
-      'Fibra ottica ad alta velocità',
-      'Copertura in tutte le camere',
-      'Rete sicura e protetta'
-    ]
-  },
-  {
-    id: 4,
-    icon: '🌳',
-    title: 'Spazi Esterni',
-    description: 'Rilassati nei nostri spazi verdi',
-    details: [
-      'Giardino con zona relax',
-      'Area barbecue',
-      'Tavoli e sedie da esterno',
-      'Giochi per bambini'
-    ]
-  },
-  {
-    id: 5,
-    icon: '🛎️',
-    title: 'I nostri comfort',
-    description: 'Per rendere il tuo soggiorno ancora più piacevole',
-    details: [
-      'Camere climatizzate',
-      'Bagno privato in tutte le camere',
-      'Finestre panoramiche con vista',
-      'Set cortesia di alta qualità',
-      'Atmosfera rilassante immersa nella natura',
-      'Privacy e tranquillità',
-      'Camere per ospiti con disabilità',
-    ]
-  },
-  {
-    id: 6,
-    icon: 'ℹ️',
-    title: 'Info Turistiche',
-    description: 'Ti aiutiamo a scoprire il territorio',
-    details: [
-      'Consigli su itinerari e visite',
-      'Mappe e guide turistiche',
-      'Prenotazione ristoranti',
-      'Informazioni su eventi locali',
-      'Attività convenzionate e sconti per attrazioni turistiche',
-    ]
-  }
-])
+const services = siteConfig.services
 </script>
 
 <style scoped>

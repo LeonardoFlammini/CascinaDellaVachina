@@ -44,7 +44,7 @@ export const siteConfig = {
   
   // ========== COME RAGGIUNGERCI ==========
   directions: {
-    byCar: 'Uscita autostradale piediluco a 10 km, seguire le indicazioni per Poggio Bustone',
+    byCar: 'Uscita superstrada Piediluco a 10 km, seguire le indicazioni per Poggio Bustone',
     byTrain: 'Stazione di Rieti a 13 km ',
     parking: 'Parcheggio privato gratuito disponibile'
   },
@@ -89,6 +89,85 @@ export const siteConfig = {
   },
   
   // ========== SERVIZI OFFERTI ==========
+  services: [
+    {
+      id: 1,
+      icon: '🥐',
+      title: 'Colazione',
+      description: 'Inizia la giornata con la nostra colazione genuina',
+      details: [
+        'Prodotti freschi e locali',
+        'Torte artigianali',
+        'Marmellate artigianali',
+        'Caffè e bevande calde',
+        'Opzioni per celiaci, intolleranti al lattosio e vegetariani',
+        'Possibilità di colazione all\'aperto nei mesi più caldi'
+      ]
+    },
+    {
+      id: 2,
+      icon: '🅿️',
+      title: 'Parcheggio',
+      description: 'Parcheggio privato gratuito per tutti gli ospiti',
+      details: [
+        'Ampio parcheggio interno',
+        'Accesso custodito',
+        'Posti auto riservati'
+      ]
+    },
+    {
+      id: 3,
+      icon: '📶',
+      title: 'Wi-Fi Gratuito',
+      description: 'Connessione internet veloce in tutta la struttura',
+      details: [
+        'Fibra ottica ad alta velocità',
+        'Copertura in tutte le camere',
+        'Rete sicura e protetta'
+      ]
+    },
+    {
+      id: 4,
+      icon: '🌳',
+      title: 'Spazi Esterni',
+      description: 'Rilassati nei nostri spazi verdi',
+      details: [
+        'Giardino con zona relax',
+        'Area barbecue',
+        'Tavoli e sedie da esterno',
+        'Giochi per bambini'
+      ]
+    },
+    {
+      id: 5,
+      icon: '🛎️',
+      title: 'I nostri comfort',
+      description: 'Per rendere il tuo soggiorno ancora più piacevole',
+      details: [
+        'Camere climatizzate',
+        'Bagno privato in tutte le camere',
+        'Finestre panoramiche con vista',
+        'Set cortesia di alta qualità',
+        'Atmosfera rilassante immersa nella natura',
+        'Privacy e tranquillità',
+        'Camere per ospiti con disabilità',
+      ]
+    },
+    {
+      id: 6,
+      icon: 'ℹ️',
+      title: 'Info Turistiche',
+      description: 'Ti aiutiamo a scoprire il territorio',
+      details: [
+        'Consigli su itinerari e visite',
+        'Mappe e guide turistiche',
+        'Prenotazione ristoranti',
+        'Informazioni su eventi locali',
+        'Attività convenzionate e sconti per attrazioni turistiche',
+      ]
+    }
+  ],
+  
   amenities: {
     general: [
       'Wi-Fi gratuito',

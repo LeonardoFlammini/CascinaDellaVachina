@@ -81,11 +81,11 @@
             <div class="info-boxes">
               <div class="info-box">
                 <h3>Check-in</h3>
-                <p>Dalle 15:00 alle 20:00</p>
+                <p>Dalle {{ siteConfig.checkIn.from }} alle {{ siteConfig.checkIn.to }}</p>
               </div>
               <div class="info-box">
                 <h3>Check-out</h3>
-                <p>Entro le 10:30</p>
+                <p>Entro le {{ siteConfig.checkOut.time }}</p>
               </div>
               <div class="info-box">
                 <h3>Colazione</h3>
@@ -106,7 +106,7 @@
             <div class="price-info">
               <p>✓ Colazione inclusa</p>
               <p>✓ Wi-Fi gratuito</p>
-              <p>✓ Cancellazione gratuita fino a 3 giorni prima</p>
+              <p>✓ {{ siteConfig.policies.cancellation }}</p>
             </div>
           </div>
 
@@ -127,6 +127,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import siteConfig from '@/config/siteConfig'
 
 // Carica dinamicamente tutte le immagini dalla cartella francesco
 const imageModules = import.meta.glob('/public/images/rooms/francesco/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' })
