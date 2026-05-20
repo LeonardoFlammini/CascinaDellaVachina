@@ -13,14 +13,14 @@
           
           <div class="info-cards">
             <div class="info-card">
-              <div class="icon">📞</div>
+              <div class="icon"><a :href="getPhoneLink()">📞</a></div>
               <h3>Telefono</h3>
               <p><a :href="getPhoneLink()">{{ siteConfig.contact.phone }}</a></p>
               <p class="note">{{ siteConfig.contact.phoneHours }}</p>
             </div>
 
             <div class="info-card">
-              <div class="icon">📧</div>
+              <div class="icon"><a :href="getEmailLink()">📧</a></div>
               <h3>Email</h3>
               <p><a :href="getEmailLink()">{{ siteConfig.contact.email }}</a></p>
               <p class="note">Risposta entro 24 ore</p>
@@ -179,7 +179,14 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import emailjs from '@emailjs/browser'
 import { siteConfig, getPhoneLink, getEmailLink, getWhatsAppLink } from '@/config/siteConfig'
+
+// ⚠️ Sostituisci questi valori con quelli del tuo account EmailJS
+// Dashboard: https://dashboard.emailjs.com
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const formData = reactive({
   name: '',
@@ -202,32 +209,28 @@ const handleSubmit = async () => {
   submitError.value = false
 
   try {
-    const data = new FormData()
-    data.append('_subject', `Richiesta informazioni da ${formData.name}`)
-    data.append('nome', formData.name)
-    data.append('email', formData.email)
-    data.append('telefono', formData.phone || 'Non fornito')
-    data.append('ospiti', formData.guests || 'Non specificato')
-    data.append('checkin', formData.checkin || 'Non specificato')
-    data.append('checkout', formData.checkout || 'Non specificato')
-    data.append('messaggio', formData.message)
-    data.append('_privacy', `Consenso accordato il ${new Date().toLocaleString('it-IT')}`)
-    data.append('_captcha', 'false')
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Non fornito',
+        guests: formData.guests || 'Non specificato',
+        checkin: formData.checkin || 'Non specificato',
+        checkout: formData.checkout || 'Non specificato',
+        message: formData.message,
+        privacy_consent: `Consenso accordato il ${new Date().toLocaleString('it-IT')}`,
+        to_email: siteConfig.contact.email
+      },
+      EMAILJS_PUBLIC_KEY
+    )
 
-    const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
-      method: 'POST',
-      body: data
+    submitSuccess.value = true
+    Object.keys(formData).forEach(key => {
+      formData[key] = typeof formData[key] === 'boolean' ? false : ''
     })
-
-    if (response.ok) {
-      submitSuccess.value = true
-      Object.keys(formData).forEach(key => {
-        formData[key] = typeof formData[key] === 'boolean' ? false : ''
-      })
-      setTimeout(() => { submitSuccess.value = false }, 5000)
-    } else {
-      submitError.value = true
-    }
+    setTimeout(() => { submitSuccess.value = false }, 5000)
   } catch (e) {
     submitError.value = true
   } finally {
@@ -312,6 +315,10 @@ h2 {
 
 .info-card a:hover {
   text-decoration: underline;
+}
+
+.info-card .icon a:hover {
+  text-decoration: none;
 }
 
 .info-card .note {
