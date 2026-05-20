@@ -129,7 +129,7 @@ const rooms = ref([
 <style scoped>
 .page-header {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('public/images/rooms/francesco/camera-francesco-letto.jpeg') center/cover;
+    url('/images/rooms/francesco/camera-francesco-letto.jpeg') center/cover;
   color: white;
   text-align: center;
   padding: 5rem 20px;

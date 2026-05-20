@@ -174,7 +174,7 @@ const prevImage = () => {
 <style scoped>
 .page-header {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('public/images/gallery/lago-lungo-pontile.jpeg') center/cover;
+    url('/images/gallery/lago-lungo-pontile.jpeg') center/cover;
   color: white;
   text-align: center;
   padding: 5rem 20px;
