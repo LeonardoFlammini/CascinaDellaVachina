@@ -1,0 +1,2 @@
+-[]Implementare loader in gallery
+-[]implementare recensioni
