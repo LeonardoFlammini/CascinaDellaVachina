@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <header class="header">
     <div class="container">
       <div class="header-content">
@@ -59,7 +59,7 @@ const closeMenu = () => {
 
 .logo {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--color-text-primary);
 }
 
 .logo img {
@@ -81,7 +81,7 @@ const closeMenu = () => {
 
 .nav-link {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-weight: 500;
   transition: color 0.3s;
   padding: 0.5rem 0;
@@ -90,8 +90,8 @@ const closeMenu = () => {
 
 .nav-link:hover,
 .nav-link.router-link-active {
-  color: #42b983;
-  border-bottom-color: #42b983;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 /* Hamburger Menu Button */
@@ -109,7 +109,7 @@ const closeMenu = () => {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: #2c3e50;
+  background-color: var(--color-bg-dark);
   transition: all 0.3s;
   border-radius: 2px;
 }
@@ -155,14 +155,14 @@ const closeMenu = () => {
 
   .nav-link {
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--color-bg-tertiary);
     border-bottom-color: transparent;
   }
 
   .nav-link:hover,
   .nav-link.router-link-active {
-    background-color: #f8f9fa;
-    color: #42b983;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-primary);
     border-bottom-color: transparent;
   }
 }

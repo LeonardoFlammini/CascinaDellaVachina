@@ -1,0 +1,74 @@
+/**
+ * Design System - Palette Colori 4 — Blu Polvere & Ferro
+ * Cascina della Vachina
+ *
+ * Palette: Powder Blue · Oxidized Iron · Molten Orange · Silver
+ * Per applicare: sostituire l'import di colors.css con colors4.css in main.js
+ */
+
+:root {
+  /* ========== COLORI PRIMARI ========== */
+  /* Arancione fuso come colore principale */
+  --color-primary: #eb4511;
+  --color-primary-light: #ef6a3d;
+  --color-primary-dark: #b02e0c;
+  --color-primary-darker: #8a2309;
+
+  /* ========== COLORI TESTO ========== */
+  --color-text-primary: #2c2c2c;    /* Grigio scuro neutro — titoli */
+  --color-text-secondary: #444444;  /* Grigio medio — testi secondari */
+  --color-text-tertiary: #666666;   /* Grigio — testi terziari */
+  --color-text-muted: #c1bfb5;      /* Silver — note attenuate */
+  --color-text-white: #fff;         /* Testo bianco su sfondi scuri */
+
+  /* ========== COLORI BACKGROUND ========== */
+  --color-bg-primary: #ffffff;       /* Sfondo principale */
+  --color-bg-secondary: #f4f6f8;     /* Bianco con tono blu freddo */
+  --color-bg-tertiary: #e8edf1;      /* Azzurro molto chiaro */
+  --color-bg-dark: #1e2b35;          /* Blu-grigio scuro (footer, hero) */
+  --color-bg-overlay: rgba(30, 43, 53, 0.6);  /* Overlay blu scuro */
+
+  /* ========== COLORI ACCENTO ========== */
+  --color-accent: #8eb1c7;           /* Powder Blue — accento azzurro */
+  --color-accent-dark: #6a93ae;
+  --color-accent-silver: #c1bfb5;    /* Silver — accento neutro */
+
+  /* ========== COLORI UI ========== */
+  --color-border: #d8dde2;           /* Bordi con tono freddo */
+  --color-border-light: #eaecef;
+  --color-border-focus: var(--color-primary);
+
+  /* ========== COLORI STATI ========== */
+  --color-success: #28a745;
+  --color-success-light: #d4edda;
+  --color-success-text: #155724;
+
+  --color-error: #dc3545;
+  --color-error-light: #f8d7da;
+  --color-error-text: #721c24;
+
+  --color-warning: #ffc107;
+  --color-warning-light: #fff3cd;
+  --color-warning-text: #856404;
+
+  --color-info: #17a2b8;
+  --color-info-light: #d1ecf1;
+  --color-info-text: #0c5460;
+
+  /* ========== COLORI SOCIAL ========== */
+  --color-facebook: #1877f2;
+  --color-instagram: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --color-tripadvisor: #00af87;
+  --color-whatsapp: #25d366;
+
+  /* ========== OMBRE ========== */
+  --shadow-sm: 0 1px 3px rgba(30, 43, 53, 0.08);
+  --shadow-md: 0 2px 8px rgba(30, 43, 53, 0.12);
+  --shadow-lg: 0 4px 12px rgba(30, 43, 53, 0.18);
+  --shadow-xl: 0 8px 24px rgba(30, 43, 53, 0.25);
+
+  /* ========== TRANSIZIONI ========== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

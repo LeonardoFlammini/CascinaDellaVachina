@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="services">
     <div class="page-header">
       <h1>I Nostri Servizi</h1>
@@ -96,13 +96,13 @@ const services = siteConfig.services
 }
 
 .service-card h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .service-card p {
-  color: #666;
+  color: var(--color-text-tertiary);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -114,7 +114,7 @@ const services = siteConfig.services
 }
 
 .service-card li {
-  color: #555;
+  color: var(--color-text-secondary);
   padding: 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
@@ -124,12 +124,12 @@ const services = siteConfig.services
   content: '✓';
   position: absolute;
   left: 0;
-  color: #42b983;
+  color: var(--color-primary);
   font-weight: bold;
 }
 
 .info-section {
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-secondary);
   padding: 3rem;
   border-radius: 10px;
   margin-top: 3rem;
@@ -137,7 +137,7 @@ const services = siteConfig.services
 
 .info-section h2 {
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -155,19 +155,19 @@ const services = siteConfig.services
 }
 
 .info-card h4 {
-  color: #42b983;
+  color: var(--color-primary);
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
 
 .info-card p {
-  color: #555;
+  color: var(--color-text-secondary);
   margin: 0.5rem 0;
   line-height: 1.6;
 }
 
 .info-card .note {
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   font-style: italic;
   margin-top: 0.8rem;

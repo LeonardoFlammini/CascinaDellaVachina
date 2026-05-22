@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="rooms">
     <div class="page-header">
       <h1>Le Nostre Camere</h1>
@@ -199,13 +199,13 @@ const rooms = ref([
 }
 
 .room-content h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
 .room-description {
-  color: #666;
+  color: var(--color-text-tertiary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -221,7 +221,7 @@ const rooms = ref([
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #555;
+  color: var(--color-text-secondary);
 }
 
 .icon {
@@ -236,11 +236,11 @@ const rooms = ref([
 }
 
 .amenity {
-  background-color: #f0f0f0;
+  background-color: var(--color-bg-tertiary);
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--color-text-secondary);
 }
 
 .room-footer {
@@ -255,12 +255,12 @@ const rooms = ref([
 .price {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #42b983;
+  color: var(--color-primary);
 }
 
 .btn-book {
   padding: 0.8rem 2rem;
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -270,7 +270,7 @@ const rooms = ref([
 }
 
 .room-card-link:hover .btn-book {
-  background-color: #359268;
+  background-color: var(--color-primary-dark);
 }
 
 @media (max-width: 968px) {

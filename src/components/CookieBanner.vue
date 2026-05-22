@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <Transition name="slide-up">
     <div v-if="!cookieConsent" class="cookie-banner">
       <div class="cookie-content">

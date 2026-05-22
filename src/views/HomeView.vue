@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="home">
     <!-- Hero Section -->
     <section class="hero">
@@ -104,7 +104,7 @@
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -113,7 +113,7 @@
 }
 
 .cta-button:hover {
-  background-color: #359268;
+  background-color: var(--color-primary-dark);
 }
 
 .section {
@@ -130,11 +130,11 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #2c3e50;
+  color: var(--color-text-primary);
 }
 
 .about {
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-secondary);
 }
 
 .about p {
@@ -143,7 +143,7 @@
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  color: #555;
+  color: var(--color-text-secondary);
 }
 
 .highlights-grid {
@@ -167,17 +167,17 @@
 }
 
 .highlight-card h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
 }
 
 .highlight-card p {
-  color: #666;
+  color: var(--color-text-tertiary);
   line-height: 1.6;
 }
 
 .cta-section {
-  background-color: #2c3e50;
+  background-color: var(--color-bg-dark);
   color: white;
   text-align: center;
 }

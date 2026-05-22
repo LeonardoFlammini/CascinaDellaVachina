@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="contacts">
     <div class="page-header">
       <h1>Contattaci</h1>
@@ -274,7 +274,7 @@ const handleSubmit = async () => {
 }
 
 h2 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-size: 2rem;
   margin-bottom: 2rem;
 }
@@ -299,7 +299,7 @@ h2 {
 }
 
 .info-card h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -308,7 +308,7 @@ h2 {
 }
 
 .info-card a {
-  color: #42b983;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 600;
 }
@@ -322,20 +322,20 @@ h2 {
 }
 
 .info-card .note {
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }
 
 .social-section {
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   padding: 2rem;
   border-radius: 10px;
   text-align: center;
 }
 
 .social-section h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -392,7 +392,7 @@ h2 {
 
 .form-group label {
   display: block;
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -402,7 +402,7 @@ h2 {
 .form-group textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--color-border);
   border-radius: 5px;
   font-family: inherit;
   font-size: 1rem;
@@ -413,7 +413,7 @@ h2 {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #42b983;
+  border-color: var(--color-primary);
 }
 
 .form-group.checkbox {
@@ -433,13 +433,13 @@ h2 {
 }
 
 .form-group.checkbox a {
-  color: #42b983;
+  color: var(--color-primary);
 }
 
 .submit-btn {
   width: 100%;
   padding: 1rem 2rem;
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -450,7 +450,7 @@ h2 {
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #359268;
+  background-color: var(--color-primary-dark);
 }
 
 .submit-btn:disabled {
@@ -462,7 +462,7 @@ h2 {
   text-align: center;
   margin-top: 1rem;
   color: var(--color-text-secondary);
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   padding: 1rem;
   border-radius: 5px;
   border-left: 4px solid var(--color-primary);
@@ -471,8 +471,8 @@ h2 {
 .success-message {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #d4edda;
-  color: #155724;
+  background-color: var(--color-success-light);
+  color: var(--color-success-text);
   border-radius: 5px;
   text-align: center;
 }
@@ -480,8 +480,8 @@ h2 {
 .error-message {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: var(--color-error-light);
+  color: var(--color-error-text);
   border-radius: 5px;
   text-align: center;
 }

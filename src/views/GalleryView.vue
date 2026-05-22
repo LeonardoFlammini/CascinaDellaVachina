@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="gallery">
     <div class="page-header">
       <h1>Galleria Fotografica</h1>
@@ -209,9 +209,9 @@ const prevImage = () => {
 
 .filter-btn {
   padding: 0.8rem 1.5rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--color-border);
   background: white;
-  color: #555;
+  color: var(--color-text-secondary);
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s;
@@ -219,13 +219,13 @@ const prevImage = () => {
 }
 
 .filter-btn:hover {
-  border-color: #42b983;
-  color: #42b983;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .filter-btn.active {
-  background-color: #42b983;
-  border-color: #42b983;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
   color: white;
 }
 

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -59,7 +59,7 @@ const currentYear = computed(() => new Date().getFullYear())
 <style scoped>
 .footer {
   width: 100%;
-  background-color: #2c3e50;
+  background-color: var(--color-bg-dark);
   color: #fff;
   padding: 3rem 0 1rem;
   margin-top: 4rem;
@@ -74,7 +74,7 @@ const currentYear = computed(() => new Date().getFullYear())
 
 .footer-section h3 {
   margin-top: 0;
-  color: #42b983;
+  color: var(--color-primary);
 }
 
 .footer-section h4 {
@@ -93,7 +93,7 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .footer-section a:hover {
-  color: #42b983;
+  color: var(--color-primary);
 }
 
 .social-links {
@@ -114,7 +114,7 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .social-icon:hover {
-  background-color: #42b983;
+  background-color: var(--color-primary);
   transform: scale(1.1);
 }
 
@@ -135,7 +135,7 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .footer-links a:hover {
-  color: #42b983;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
@@ -147,7 +147,7 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .footer-links a:hover {
-  color: #42b983;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 

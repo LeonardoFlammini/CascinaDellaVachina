@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="location">
     <div class="page-header">
       <h1>Dove Siamo</h1>
@@ -168,12 +168,12 @@ h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: var(--color-text-primary);
 }
 
 .section-intro {
   text-align: center;
-  color: #666;
+  color: var(--color-text-tertiary);
   font-size: 1.2rem;
   margin-bottom: 3rem;
 }
@@ -280,12 +280,12 @@ h2 {
 }
 
 .info-item h4 {
-  color: #42b983;
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
 .info-item p {
-  color: #555;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -310,23 +310,23 @@ h2 {
 }
 
 .attraction-card h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .attraction-card .distance {
-  color: #42b983;
+  color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .attraction-card p:last-child {
-  color: #666;
+  color: var(--color-text-tertiary);
   line-height: 1.6;
 }
 
 .distances-section {
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   padding: 3rem;
   border-radius: 10px;
 }
@@ -342,7 +342,7 @@ h2 {
   gap: 1rem;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .distance-item:last-child {
@@ -350,7 +350,7 @@ h2 {
 }
 
 .place {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
@@ -360,7 +360,7 @@ h2 {
 }
 
 .distance-value {
-  color: #42b983;
+  color: var(--color-primary);
   font-weight: 600;
   white-space: nowrap;
 }

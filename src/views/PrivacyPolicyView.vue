@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="privacy-policy">
     <div class="page-header">
       <div class="container">
@@ -279,7 +279,7 @@ import { siteConfig, getFullAddress, getPhoneLink, getEmailLink } from '@/config
 }
 
 .last-update {
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-secondary);
   padding: 1rem;
   border-left: 4px solid var(--color-primary);
   margin-bottom: 2rem;
@@ -369,7 +369,7 @@ import { siteConfig, getFullAddress, getPhoneLink, getEmailLink } from '@/config
 }
 
 .contact-box {
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-secondary);
   border-left: 4px solid var(--color-primary);
 }
 
@@ -406,7 +406,7 @@ import { siteConfig, getFullAddress, getPhoneLink, getEmailLink } from '@/config
 }
 
 .contact-info {
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   padding: 1.5rem;
   border-radius: 8px;
   margin-top: 1rem;
@@ -421,7 +421,7 @@ import { siteConfig, getFullAddress, getPhoneLink, getEmailLink } from '@/config
   text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--color-border);
 }
 
 .btn-primary {

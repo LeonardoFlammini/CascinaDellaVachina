@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="room-detail">
     <div class="room-header">
       <div class="container">
@@ -149,13 +149,13 @@ const roomImages = computed(() => {
 
 <style scoped>
 .room-header {
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-secondary);
   padding: 3rem 0 2rem;
-  border-bottom: 3px solid #42b983;
+  border-bottom: 3px solid var(--color-primary);
 }
 
 .room-header h1 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-size: 2.5rem;
   margin: 0;
   font-weight: 700;
@@ -214,15 +214,15 @@ const roomImages = computed(() => {
 }
 
 .section h2 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   font-size: 2rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #42b983;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .section p {
-  color: #555;
+  color: var(--color-text-secondary);
   line-height: 1.8;
   font-size: 1.1rem;
 }
@@ -237,7 +237,7 @@ const roomImages = computed(() => {
   display: flex;
   gap: 1rem;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   border-radius: 10px;
 }
 
@@ -246,13 +246,13 @@ const roomImages = computed(() => {
 }
 
 .feature-item strong {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   display: block;
   margin-bottom: 0.3rem;
 }
 
 .feature-item p {
-  color: #666;
+  color: var(--color-text-tertiary);
   margin: 0;
   font-size: 1rem;
 }
@@ -279,19 +279,19 @@ const roomImages = computed(() => {
 }
 
 .info-box {
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
 }
 
 .info-box h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .info-box p {
-  color: #666;
+  color: var(--color-text-tertiary);
   margin: 0;
   font-size: 1rem;
 }
@@ -304,7 +304,7 @@ const roomImages = computed(() => {
 
 .price-card {
   background: white;
-  border: 2px solid #42b983;
+  border: 2px solid var(--color-primary);
   border-radius: 15px;
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -318,7 +318,7 @@ const roomImages = computed(() => {
 
 .price-label {
   display: block;
-  color: #666;
+  color: var(--color-text-tertiary);
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
 }
@@ -327,13 +327,13 @@ const roomImages = computed(() => {
   display: block;
   font-size: 3rem;
   font-weight: 700;
-  color: #42b983;
+  color: var(--color-primary);
   line-height: 1;
 }
 
 .price-period {
   display: block;
-  color: #666;
+  color: var(--color-text-tertiary);
   font-size: 0.95rem;
   margin-top: 0.3rem;
 }
@@ -342,7 +342,7 @@ const roomImages = computed(() => {
   display: block;
   width: 100%;
   padding: 1rem;
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
   text-decoration: none;
   text-align: center;
@@ -354,7 +354,7 @@ const roomImages = computed(() => {
 }
 
 .btn-book-now:hover {
-  background-color: #359268;
+  background-color: var(--color-primary-dark);
 }
 
 .price-info {
@@ -363,25 +363,25 @@ const roomImages = computed(() => {
 }
 
 .price-info p {
-  color: #555;
+  color: var(--color-text-secondary);
   margin: 0.5rem 0;
   font-size: 0.95rem;
 }
 
 .contact-card {
-  background: #f8f9fa;
+  background: var(--color-bg-secondary);
   border-radius: 15px;
   padding: 1.5rem;
   text-align: center;
 }
 
 .contact-card h3 {
-  color: #2c3e50;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .contact-card p {
-  color: #666;
+  color: var(--color-text-tertiary);
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
@@ -390,16 +390,16 @@ const roomImages = computed(() => {
   display: inline-block;
   padding: 0.8rem 2rem;
   background-color: white;
-  color: #42b983;
+  color: var(--color-primary);
   text-decoration: none;
-  border: 2px solid #42b983;
+  border: 2px solid var(--color-primary);
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.3s;
 }
 
 .btn-contact:hover {
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
 }
 
@@ -412,16 +412,16 @@ const roomImages = computed(() => {
 .btn-back {
   display: inline-block;
   padding: 0.8rem 2rem;
-  color: #42b983;
+  color: var(--color-primary);
   text-decoration: none;
-  border: 2px solid #42b983;
+  border: 2px solid var(--color-primary);
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.3s;
 }
 
 .btn-back:hover {
-  background-color: #42b983;
+  background-color: var(--color-primary);
   color: white;
 }
 
